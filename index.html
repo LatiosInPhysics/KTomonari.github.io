@@ -2,33 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-　<!-- Google tag (gtag.js) -->
-　<script async src="https://www.googletagmanager.com/gtag/js?id=G-8LXPPYNVH4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8LXPPYNVH4');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kyosuke Tomonari | Research</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 780px;
-      margin: 60px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      color: #252525;
-    }
-    h1 { margin-bottom: 4px; }
-    h2 {
-      margin-top: 36px;
-      border-bottom: 1px solid #ddd;
-    }
-    a { color: #2465a3; }
-  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8LXPPYNVH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8LXPPYNVH4');
+</script>
+<!-- GoatCounter (Register counts)-->
+<script
+data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="https://gc.zgo.at/count.js">
+</script>
+<!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyosuke Tomonari | Research</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 780px;
+    margin: 60px auto;
+    padding: 0 24px;
+    line-height: 1.7;
+    color: #252525;
+  }
+  h1 { margin-bottom: 4px; }
+  h2 { margin-top: 36px; border-bottom: 1px solid #ddd;}
+  a { color: #2465a3; }
+</style>
 </head>
 <body>
   <h1>Kyosuke Tomonari</h1>
@@ -56,7 +58,8 @@
   <p>
     Kyosuke Tomonari, 
     "STEGR with information geometry", Under Review. <br>
-    e-Print: <a href=https://doi.org/10.51094/jxiv.5821>Jxiv:5821</a>
+    e-Print: <a href=https://doi.org/10.51094/jxiv.5821 data-goatcounter-click="jxiv-5821" data-goatcounter-no-session="1">Jxiv:5821</a>
+    Link clicks: <span id="jxiv-count">—</span>
   </p>
   <p>
     Kyosuke Tomonari, Daniel Blixt, and Sebastian Bahamonde, 
@@ -175,5 +178,27 @@
     Email: ktomonari[at]gmail.com<br>
     Please replace [at] with @.
   </p>
+  <!-- GoatCounter (process counts representation) -->
+<script>
+  const counterBase =
+    "https://YOURCODE.goatcounter.com/counter/";
+
+  async function showCount(path, elementId) {
+    try {
+      const response = await fetch(
+        counterBase + encodeURIComponent(path) + ".json"
+      );
+      if (!response.ok) throw new Error("Not available");
+
+      const data = await response.json();
+      document.getElementById(elementId).textContent =
+        data.count;
+    } catch (error) {
+      document.getElementById(elementId).textContent = "—";
+    }
+  }
+  showCount("TOTAL", "site-count");
+  showCount("jxiv-5821", "jxiv-count");
+</script>
 </body>
 </html>
