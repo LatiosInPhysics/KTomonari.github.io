@@ -198,44 +198,77 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     Please replace [at] with @.
   </p>
 <!-- GoatCounter (process counts representation) -->
+
+<!-- GoatCounter (process counts representation) -->
 <script>
   const counterBase =
     "https://latiosinphysics.goatcounter.com/counter/";
 
   async function showCount(path, elementId) {
+    const target = document.getElementById(elementId);
+
+    if (!target) {
+      console.error("Element not found:", elementId);
+      return;
+    }
+
     try {
       const response = await fetch(
         counterBase + encodeURIComponent(path) + ".json"
       );
-      if (!response.ok) throw new Error("Not available");
+
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
 
       const data = await response.json();
-      document.getElementById(elementId).textContent =
-        data.count;
+      target.textContent = data.count;
+
     } catch (error) {
-      document.getElementById(elementId).textContent = "—";
+      console.error("Counter error:", path, error);
+      target.textContent = "—";
     }
   }
-  showCount("jxiv:5821", "jxiv:5821-count");
-  showCount("arXiv:2605.16869", "arXiv:2605.16869-count");
-  showCount("arXiv:2509.18772-journal", "arXiv-2509.18772-journal-count");
-  showCount("arXiv:2509.18772", "arXiv:2509.18772-count");
-  showCount("arXiv:2506.22158-journal", "arXiv:2506.22158-journal-count");
-  showCount("arXiv:2506.22158", "arXiv:2506.22158-count");
-  showCount("arXiv:2411.11118-journal", "arXiv:2411.11118-journal-count");
-  showCount("arXiv:2411.11118", "arXiv:2411.11118-count");
-  showCount("arXiv:2410.15056-journal", "arXiv:2410.15056-journal-count");
-  showCount("arXiv:2410.15056", "arXiv:2410.15056-count");
-  showCount("arXiv:2410.04848-journal", "arXiv:2410.04848-journal-count");
-  showCount("arXiv:2410.04848", "arXiv:2410.04848-count");
-  showCount("arXiv:2312.11558-journal", "arXiv:2312.11558-journal-count");
-  showCount("arXiv:2312.11558", "arXiv:2312.11558-count");
-  showCount("arXiv:2308.06469-journal", "arXiv:2308.06469-journal-count");
-  showCount("arXiv:2308.06469", "arXiv:2308.06469-count");
-  showCount("arXiv:2308.06469-journal", "arXiv:2308.06469-journal-count");
-  showCount("arXiv:2308.06469", "arXiv:2308.06469-count");
-  showCount("arXiv:2303.03805-journal", "arXiv:2303.03805-journal-count");
-  showCount("arXiv:2303.03805", "arXiv:2303.03805-count");
+
+  // Preprints
+  showCount("jxiv:5821-count", "jxiv:5821-count");
+  showCount("arXiv:2605.16869-count", "arXiv:2605.16869-count");
+
+  // Chinese Physics C
+  showCount("arXiv:2509.18772-journal-count", "arXiv:2509.18772-journal-count");
+  showCount("arXiv:2509.18772-count", "arXiv:2509.18772-count");
+
+  // European Physical Journal C (2026)
+  showCount("arXiv:2506.22158-journal-count", "arXiv:2506.22158-journal-count");
+  showCount("arXiv:2506.22158-count", "arXiv:2506.22158-count");
+
+  // Physics Letters B
+  showCount("arXiv:2411.11118-journal-count", "arXiv:2411.11118-journal-count");
+  showCount("arXiv:2411.11118-count", "arXiv:2411.11118-count");
+
+  // Physical Review D
+  showCount("arXiv:2410.15056-journal-count", "arXiv:2410.15056-journal-count");
+  showCount("arXiv:2410.15056-count", "arXiv:2410.15056-count");
+
+  // Journal of Mathematical Physics
+  showCount("arXiv:2410.04848-journal-count", "arXiv:2410.04848-journal-count");
+  showCount("arXiv:2410.04848-count", "arXiv:2410.04848-count");
+
+  // International Journal of Geometric Methods in Modern Physics
+  showCount("arXiv:2312.11558-journal-count", "arXiv:2312.11558-journal-count");
+  showCount("arXiv:2312.11558-count", "arXiv:2312.11558-count");
+
+  // European Physical Journal C (2024)
+  showCount("arXiv:2308.06469-journal-count", "arXiv:2308.06469-journal-count");
+  showCount("arXiv:2308.06469-count", "arXiv:2308.06469-count");
+
+  // PTEP 2023, 063A05
+  showCount("arXiv:2304.00877-journal-count", "arXiv:2304.00877-journal-count");
+  showCount("arXiv:2304.00877-count", "arXiv:2304.00877-count");
+
+  // PTEP 2023, 103E03
+  showCount("arXiv:2303.03805-journal-count", "arXiv:2303.03805-journal-count");
+  showCount("arXiv:2303.03805-count", "arXiv:2303.03805-count");
 </script>
 </body>
 </html>
