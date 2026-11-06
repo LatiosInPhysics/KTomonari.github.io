@@ -12,7 +12,10 @@
 </script>
 <!-- GoatCounter (Register counts)-->
 <script
-data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="https://gc.zgo.at/count.js">
+  data-goatcounter="https://latiosinphysics.goatcounter.com/count"
+  data-goatcounter-settings='{"no_events": true}'
+  defer
+  src="https://gc.zgo.at/count.js">
 </script>
 <!-- meta -->
 <meta charset="UTF-8">
@@ -88,7 +91,7 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
   <p>
     Kyosuke Tomonari, 
     "Degrees of freedom of new general relativity: Type 4, Type 7, and Type 9"<br>
-    Published in: <a href=https://doi.org/10.1016/j.physletb.2026.140310 data-goatcounter-click="arXiv:2411.11118-journal" data-goatcounter-no-session="1"><i>Phys.Lett.B 875 (2026) 140310.</i></a><br>
+    Published in: <a href=https://doi.org/10.1016/j.physletb.2026.140310 data-goatcounter-click="arXiv:2411.11118-journal" data-goatcounter-no-session="1"><i>Phys.Lett.B</i> 875 (2026) 140310.</a><br>
     Link clicks: <span id="arXiv:2411.11118-journal-count">0</span><br>
     e-Print: <a href=https://arxiv.org/abs/2411.11118 data-goatcounter-click="arXiv:2411.11118" data-goatcounter-no-session="1">arXiv:2411.11118</a><br>
     Link clicks: <span id="arXiv:2411.11118-count">0</span><br>
@@ -202,19 +205,19 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
   const counterBase =
     "https://latiosinphysics.goatcounter.com/counter/";
 
+  // Display the recorded count.
   async function showCount(eventName, target) {
     try {
       const response = await fetch(
         counterBase + encodeURIComponent(eventName) + ".json"
       );
 
-      // No recorded clicks yet: display 0.
+      // An event with no record is displayed as 0.
       if (response.status === 404) {
         target.textContent = "0";
         return;
       }
 
-      // Other HTTP errors.
       if (!response.ok) {
         throw new Error("HTTP " + response.status);
       }
@@ -228,7 +231,7 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     }
   }
 
-  // Automatically find and display all link counters.
+  // Find all publication links and display their counts.
   document.querySelectorAll(
     'a[data-goatcounter-click]'
   ).forEach(function(link) {
@@ -245,6 +248,36 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     }
 
     showCount(eventName, target);
+  });
+
+  // Record publication clicks explicitly.
+  document.addEventListener("click", function(event) {
+
+    const link = event.target.closest(
+      'a[data-goatcounter-click]'
+    );
+
+    if (!link) return;
+
+    const eventName =
+      link.getAttribute("data-goatcounter-click");
+
+    if (
+      !window.goatcounter ||
+      typeof window.goatcounter.count !== "function"
+    ) {
+      console.error("GoatCounter is not loaded.");
+      return;
+    }
+
+    window.goatcounter.count({
+      path: eventName,
+      title: link.textContent.trim(),
+      event: true,
+      no_session: link.hasAttribute(
+        "data-goatcounter-no-session"
+      )
+    });
   });
 </script>
 </body>
