@@ -32,6 +32,30 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
   a { color: #2465a3; }
 </style>
 </head>
+<!-- GoatCounter (process counts representation) -->
+<script>
+  const counterBase =
+    "https://latiosinphysics.goatcounter.com/counter/";
+
+  async function showCount(path, elementId) {
+    try {
+      const response = await fetch(
+        counterBase + encodeURIComponent(path) + ".json"
+      );
+      if (!response.ok) throw new Error("Not available");
+
+      const data = await response.json();
+      document.getElementById(elementId).textContent =
+        data.count;
+    } catch (error) {
+      document.getElementById(elementId).textContent = "—";
+    }
+  }
+  showCount("jxiv-5821", "jxiv-5821-count");
+  showCount("arXiv:2605.16869", "arXiv-2605.16869-count");
+  showCount("<i>Chin.Phys.C</i> 50 (2026) 6, 065105.", "arXiv-2509.18772-journal");
+  showCount("arXiv-2509.18772", "arXiv-2509.18772-count");
+</script>
 <body>
   <h1>Kyosuke Tomonari</h1>
   <p>Postdoctoral Researcher in Theoretical Physics</p>
@@ -55,24 +79,27 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
   <h2>Publications</h2>
   
   <h3>Preprints</h3>
-  <p>
-    Kyosuke Tomonari, 
-    "STEGR with information geometry", Under Review. <br>
-    e-Print: <a href=https://doi.org/10.51094/jxiv.5821 data-goatcounter-click="jxiv-5821" data-goatcounter-no-session="1">Jxiv:5821</a>
-    Link clicks: <span id="jxiv-count">—</span>
-  </p>
-  <p>
-    Kyosuke Tomonari, Daniel Blixt, and Sebastian Bahamonde, 
-    "Gauge-invariant cosmological perturbation in Type 3 New General Relativity and background-hierarchy bound", Under Review.<br>
-    e-Print: <a href=https://arxiv.org/abs/2605.16869>arXiv:2605.16869</a>
-  </p>
+    <p>
+      Kyosuke Tomonari, 
+      "STEGR with information geometry", Under Review.<br>
+      e-Print: <a href=https://doi.org/10.51094/jxiv.5821 data-goatcounter-click="jxiv-5821" data-goatcounter-no-session="1">Jxiv:5821</a><br>
+      Link clicks: <span id="jxiv-5821-count">—</span><br>
+    </p>
+    <p>
+      Kyosuke Tomonari, Daniel Blixt, and Sebastian Bahamonde, 
+      "Gauge-invariant cosmological perturbation in Type 3 New General Relativity and background-hierarchy bound", Under Review.<br>
+      e-Print: <a href=https://arxiv.org/abs/2605.16869 data-goatcounter-click="arXiv-2605.16869" data-goatcounter-no-session="1">arXiv:2605.16869</a><br>
+      Link clicks: <span id="arXiv-2605.16869-count">—</span><br>
+    </p>
 
   <h3>Published Papers</h3>
   <p>
     Kyosuke Tomonari, Taishi Katsuragawa, Shin'ichi Nojiri, 
     "Cosmological perturbation in New General Relativity: propagating mode from the violation of local Lorentz invariance"<br>
-    Published in: <a href=https://doi.org/10.1088/1674-1137/ae4dd8><i>Chin.Phys.C</i> 50 (2026) 6, 065105.</a><br>
-    e-Print: <a href=https://arxiv.org/abs/2509.18772>arXiv:2509.18772</a><br>
+    Published in: <a href=https://doi.org/10.1088/1674-1137/ae4dd8 data-goatcounter-click="arXiv-2509.18772-journal" data-goatcounter-no-session="1"><i>Chin.Phys.C</i> 50 (2026) 6, 065105.</a><br>
+    Link clicks: <span id="arXiv-2509.18772-journal">—</span><br>
+    e-Print: <a href=https://arxiv.org/abs/2509.18772 data-goatcounter-click="arXiv-2509.18772" data-goatcounter-no-session="1">arXiv:2509.18772</a><br>
+    Link clicks: <span id="arXiv-2509.18772">—</span><br>
   </p>
   <p>
     Kkyosuke Tomonari, Taishi Katsuragawa, Shin'ichi Nojiri, 
@@ -178,27 +205,5 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     Email: ktomonari[at]gmail.com<br>
     Please replace [at] with @.
   </p>
-  <!-- GoatCounter (process counts representation) -->
-<script>
-  const counterBase =
-    "https://YOURCODE.goatcounter.com/counter/";
-
-  async function showCount(path, elementId) {
-    try {
-      const response = await fetch(
-        counterBase + encodeURIComponent(path) + ".json"
-      );
-      if (!response.ok) throw new Error("Not available");
-
-      const data = await response.json();
-      document.getElementById(elementId).textContent =
-        data.count;
-    } catch (error) {
-      document.getElementById(elementId).textContent = "—";
-    }
-  }
-  showCount("TOTAL", "site-count");
-  showCount("jxiv-5821", "jxiv-count");
-</script>
 </body>
 </html>
