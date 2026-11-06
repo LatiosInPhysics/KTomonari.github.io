@@ -208,6 +208,13 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
         counterBase + encodeURIComponent(eventName) + ".json"
       );
 
+      // No recorded clicks yet: display 0.
+      if (response.status === 404) {
+        target.textContent = "0";
+        return;
+      }
+
+      // Other HTTP errors.
       if (!response.ok) {
         throw new Error("HTTP " + response.status);
       }
