@@ -114,7 +114,7 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     "A unified-description of curvature, torsion, and non-metricity of the metric-affine geometry with the M\"{o}bius representation"<br>
     Published in: <a href=https://doi.org/10.1142/S021988782450333X data-goatcounter-click="arXiv:2312.11558-journal" data-goatcounter-no-session="1"><i>Int.J.Geom.Meth.Mod.Phys.</i> 22 (2025) 05, 2450333.</a><br>
     Link clicks: <span id="arXiv:2312.11558-journal-count">0</span><br>
-    e-Print: <a href=https://arxiv.org/abs/2312.11558 data-goatcounter-click="arXiv:2410.04848" data-goatcounter-no-session="1">arXiv:2312.11558</a><br>
+    e-Print: <a href=https://arxiv.org/abs/2312.11558 data-goatcounter-click="arXiv:2312.11558" data-goatcounter-no-session="1">arXiv:2312.11558</a><br>
     Link clicks: <span id="arXiv:2312.11558-count">0</span><br>
   </p>
   <p>
@@ -198,23 +198,14 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
     Please replace [at] with @.
   </p>
 <!-- GoatCounter (process counts representation) -->
-
-<!-- GoatCounter (process counts representation) -->
 <script>
   const counterBase =
     "https://latiosinphysics.goatcounter.com/counter/";
 
-  async function showCount(path, elementId) {
-    const target = document.getElementById(elementId);
-
-    if (!target) {
-      console.error("Element not found:", elementId);
-      return;
-    }
-
+  async function showCount(eventName, target) {
     try {
       const response = await fetch(
-        counterBase + encodeURIComponent(path) + ".json"
+        counterBase + encodeURIComponent(eventName) + ".json"
       );
 
       if (!response.ok) {
@@ -225,50 +216,29 @@ data-goatcounter="https://latiosinphysics.goatcounter.com/count" async src="http
       target.textContent = data.count;
 
     } catch (error) {
-      console.error("Counter error:", path, error);
+      console.error("Counter error:", eventName, error);
       target.textContent = "—";
     }
   }
 
-  // Preprints
-  showCount("jxiv:5821-count", "jxiv:5821-count");
-  showCount("arXiv:2605.16869-count", "arXiv:2605.16869-count");
+  // Automatically find and display all link counters.
+  document.querySelectorAll(
+    'a[data-goatcounter-click]'
+  ).forEach(function(link) {
 
-  // Chinese Physics C
-  showCount("arXiv:2509.18772-journal-count", "arXiv:2509.18772-journal-count");
-  showCount("arXiv:2509.18772-count", "arXiv:2509.18772-count");
+    const eventName =
+      link.getAttribute("data-goatcounter-click");
 
-  // European Physical Journal C (2026)
-  showCount("arXiv:2506.22158-journal-count", "arXiv:2506.22158-journal-count");
-  showCount("arXiv:2506.22158-count", "arXiv:2506.22158-count");
+    const target =
+      document.getElementById(eventName + "-count");
 
-  // Physics Letters B
-  showCount("arXiv:2411.11118-journal-count", "arXiv:2411.11118-journal-count");
-  showCount("arXiv:2411.11118-count", "arXiv:2411.11118-count");
+    if (!target) {
+      console.error("Counter element not found:", eventName);
+      return;
+    }
 
-  // Physical Review D
-  showCount("arXiv:2410.15056-journal-count", "arXiv:2410.15056-journal-count");
-  showCount("arXiv:2410.15056-count", "arXiv:2410.15056-count");
-
-  // Journal of Mathematical Physics
-  showCount("arXiv:2410.04848-journal-count", "arXiv:2410.04848-journal-count");
-  showCount("arXiv:2410.04848-count", "arXiv:2410.04848-count");
-
-  // International Journal of Geometric Methods in Modern Physics
-  showCount("arXiv:2312.11558-journal-count", "arXiv:2312.11558-journal-count");
-  showCount("arXiv:2312.11558-count", "arXiv:2312.11558-count");
-
-  // European Physical Journal C (2024)
-  showCount("arXiv:2308.06469-journal-count", "arXiv:2308.06469-journal-count");
-  showCount("arXiv:2308.06469-count", "arXiv:2308.06469-count");
-
-  // PTEP 2023, 063A05
-  showCount("arXiv:2304.00877-journal-count", "arXiv:2304.00877-journal-count");
-  showCount("arXiv:2304.00877-count", "arXiv:2304.00877-count");
-
-  // PTEP 2023, 103E03
-  showCount("arXiv:2303.03805-journal-count", "arXiv:2303.03805-journal-count");
-  showCount("arXiv:2303.03805-count", "arXiv:2303.03805-count");
+    showCount(eventName, target);
+  });
 </script>
 </body>
 </html>
