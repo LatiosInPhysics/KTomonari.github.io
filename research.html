@@ -18,17 +18,82 @@
 
 <h2>Fundamentals　(Under construction)</h2>
   
-<p>
-  Let us overview General Relativity, Metric-Affine Gravity, and Gauge Theories of Gravity, from the viewpoint of connections.<br>
-  Suppose that \(M\) is a pseudo-Riemannian manifold, \(g\) is a metric tensor, and \(\nabla\) is a connection. 
-  We consider a structure \((M,g,\nabla)\). 
-</p>
+  <p>
+    Let us overview General Relativity, Metric-Affine Gravity, and Gauge Theories of Gravity, from the viewpoint of connections.<br>
+    Suppose that \(M\) is a differentiable manifold, \(g\) is a metric tensor with a Lorentzian signature, and \(\nabla\) is an affine connection. 
+    We consider a structure \((M,g,\nabla)\). 
+  </p>
   
   <h3>General Relativity (Under construction)</h3>
   <p>
-    General Relativity describes gravity as the curvature of spacetime, which is influenced by matter and energy.
+    General Relativity employs the Levi-Civita connection, \(\overset{\circ}{\nabla}\), defined by
+    \[
+      \overset{\circ}{\nabla}_{X}Y 
+      - 
+      \overset{\circ}{\nabla}_{Y}X 
+      = 
+      [X,Y]
+    \]
+    and
+    \[
+      (Xg)(Y,Z) 
+      = 
+      g(\overset{\circ}{\nabla}_{X}Y,Z) 
+      + 
+      g(Y,\overset{\circ}{\nabla}_{X}Z) \,,
+    \]
+    where \(X,Y,Z \in TM\\). 
+    In a local coordinate system \(x^{\mu}\), the components of the Levi-Civita connection is given by
+    \[
+      \overset{\circ}{\nabla}_{\partial_{\mu}}\partial_{\nu} 
+      =
+      \overset{\circ}{\Gamma}^{\rho}_{\mu\nu}\partial_{\rho}
+    \,.
+    \]
+    Explicitly, \overset{\circ}{\Gamma}^{\rho}_{\mu\nu} is expressed in 
+    \[
+     \overset{\circ}{\Gamma}{}^{\rho}_{\mu\nu} 
+      =
+      \frac{1}{2}g^{\rho\sigma}(
+      \partial_{\mu}{g_{\nu\sigma}} 
+      + 
+      \partial_{\nu}{g_{\mu\sigma}} 
+      - 
+      \partial_{\sigma}{g_{\mu\nu}}
+      )
+      \,,
+    \]
+    where \(g_{\mu\nu}\) is the components of the metric tensor, \(g=g_{\mu\nu}dx^{\mu}\otimes dx^{\nu\), 
+    and \(g^{\mu\nu}\) is the inverse components of \(g_{\mu\nu}\). 
+    Then, \(\overset{\circ}{\nabla}\) constitues the curvature tensor as follows:
+    \[
+      R(X,Y)Z 
+      = 
+      \overset{\circ}{\nabla}_{X}\overset{\circ}{\nabla}_{Y}Z 
+      - 
+      \overset{\circ}{\nabla}_{Y}\overset{\circ}{\nabla}_{X}Z  
+      + 
+      \overset{\circ}{\nabla}_{[X,Y]}Z 
+      \,.
+    \]
+    In the local coordinates \(x^{\mu}\}, the components of the curvature tensor is given by 
+    \[
+      R^{\rho}{}_{\sigma\mu\nu}
+      =
+      \partial_{\mu}\overset{\circ}{\Gamma}{}^{\rho}_{\nu\sigma}
+      -
+      \partial_{\nu}\overset{\circ}{\Gamma}{}^{\rho}_{\mu\sigma}
+      + 
+      \overset{\circ}{\Gamma}{}^{\rho}_{\mu\lambda}\overset{\circ}{\Gamma}{}^{\lambda}_{\nu\sigma}
+      -
+      \overset{\circ}{\Gamma}{}^{\rho}_{\nu\lambda}\overset{\circ}{\Gamma}{}^{\lambda}_{\mu\sigma}
+      \,.
+    \]
+    Contracting the first and the third indices, we obtain the Ricci tensor, \(R_{\mu\nu}=g^{}R^{\rho}{}_{\mu\rho\nu}\). 
+    Further contraction leads to the Ricci scalar, \(R=g^{\mu\nu}R_{\mu\nu}\). <br>
+    brabrabra...
   </p>
-
+  
   <h3>Metric-Affine Gravity (Under construction)</h3>
   <p>
     Metric-affine gravity treats the spacetime metric and affine connection as independent geometric fields.
