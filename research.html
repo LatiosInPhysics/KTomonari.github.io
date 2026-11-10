@@ -10,6 +10,14 @@
   <script defer
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <!-- Math Environment Width -->
+  <style>
+  .math-block {
+    max-width: 700px;
+    width: 100%;
+    margin: 1em auto;
+  }
+</style>
 </head>
 
 <body>
@@ -29,6 +37,7 @@
     General Relativity describes gravity as the curvature of spacetime, which is shaped by matter and energy.<br>
     The underlying geometry is equipped with the Levi-Civita connection, \(\overset{\circ}{\nabla}\), 
     which satistfies the following two conditions:
+    <div class="math-block">
     \[
       \overset{\circ}{\nabla}_{X}Y 
       - 
@@ -37,6 +46,7 @@
       [X,Y]
     \tag{1}
     \]
+    </div>
     and
     \[
       (Xg)(Y,Z) 
